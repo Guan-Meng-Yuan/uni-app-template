@@ -11,22 +11,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       UnoCss(),
       Components({
-        resolvers: [
-          UniUIResolver(),
-          {
-            type: "component",
-            resolve: (name: string) => {
-              console.log(name)
-              if (name.match(/^Uv[A-Z]/)) {
-                const compName = kebabCase(name);
-                return {
-                  name,
-                  from: `@climblee/uv-ui/components/${compName}/${compName}.vue`,
-                };
-              }
-            },
-          },
-        ],
+        resolvers: [UniUIResolver()],
       }),
       AutoImport({
         dts: true,
